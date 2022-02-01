@@ -14,7 +14,7 @@ partial class Build
         {"2023", "net48"},
     };
 
-    const string PackVersion = "2020.2.11";
+    const string PackVersion = "2021.1.40";
     const string BuildConfiguration = "Release";
     const string ArtifactsFolder = "output";
 
