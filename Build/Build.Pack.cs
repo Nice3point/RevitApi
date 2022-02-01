@@ -1,4 +1,5 @@
-﻿using Nuke.Common.Tooling;
+﻿using Nuke.Common.Git;
+using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
@@ -6,7 +7,7 @@ partial class Build
 {
     Target Pack => _ => _
         .TriggeredBy(Cleaning)
-        .OnlyWhenStatic(() => IsLocalBuild)
+        .OnlyWhenStatic(() => IsLocalBuild || GitRepository.IsOnMainOrMasterBranch())
         .Executes(() =>
         {
             var configurations = GetConfigurations(BuildConfiguration);
