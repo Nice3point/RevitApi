@@ -1,15 +1,21 @@
 partial class Build
 {
-    readonly Dictionary<string, string> VersionMap = new()
+    readonly Dictionary<string, string> RevitFramework = new()
     {
-        {"Release R19", "2019.0.0"},
-        {"Release R20", "2020.0.0"},
-        {"Release R21", "2021.0.0"},
-        {"Release R22", "2022.0.0"}
+        {"2014", "net40"},
+        {"2015", "net45"},
+        {"2016", "net452"},
+        {"2017", "net452"},
+        {"2018", "net46"},
+        {"2019", "net47"},
+        {"2020", "net47"},
+        {"2021", "net48"},
+        {"2022", "net48"},
+        {"2023", "net48"},
     };
 
+    const string PackVersion = "2014.0.0";
     const string BuildConfiguration = "Release";
-    const string TestConfiguration = "UnitTests";
     const string ArtifactsFolder = "output";
 
     //Specify the path to the MSBuild.exe file here if you are not using VisualStudio

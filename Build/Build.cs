@@ -4,6 +4,7 @@ using Nuke.Common.Tools.VSWhere;
 
 partial class Build : NukeBuild
 {
+    readonly AbsolutePath ContentDirectory = RootDirectory / "RevitApi" / "Content" / PackVersion;
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / ArtifactsFolder;
     [Solution] readonly Solution Solution;
     [GitRepository] readonly GitRepository GitRepository;
