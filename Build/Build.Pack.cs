@@ -7,7 +7,6 @@ partial class Build
 {
     Target Pack => _ => _
         .TriggeredBy(Cleaning)
-        .OnlyWhenStatic(() => IsLocalBuild || GitRepository.IsOnMainOrMasterBranch())
         .Executes(() =>
         {
             var configurations = GetConfigurations(BuildConfiguration);
