@@ -26,7 +26,7 @@ partial class Build
             var gitHubName = GitRepository.GetGitHubName();
             var gitHubOwner = GitRepository.GetGitHubOwner();
             var artifacts = Directory.GetFiles(ArtifactsDirectory, "*");
-            var isPreRelease = PackVersion.Contains("-beta");
+            var isPreRelease = PackVersion.Contains("-beta") || PackVersion.Contains("-dev");
 
             CheckTags(gitHubOwner, gitHubName, PackVersion);
             Log.Information("Detected Tag: {Version}", PackVersion);
