@@ -1,13 +1,12 @@
 using Nuke.Common.Git;
 using Nuke.Common.ProjectModel;
-using Nuke.Common.Tools.VSWhere;
 
 partial class Build : NukeBuild
 {
-    readonly AbsolutePath ContentDirectory = RootDirectory / "RevitApi" / "Content" / PackVersion;
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / ArtifactsFolder;
-    [Solution] readonly Solution Solution;
+    readonly AbsolutePath ContentDirectory = RootDirectory / "RevitApi" / "Content" / PackVersion;
     [GitRepository] readonly GitRepository GitRepository;
+    [Solution] readonly Solution Solution;
 
     public static int Main() => Execute<Build>(x => x.Cleaning);
 

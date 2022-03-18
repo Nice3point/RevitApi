@@ -1,6 +1,4 @@
-﻿using Nuke.Common.Git;
-using Nuke.Common.Tooling;
-using Nuke.Common.Tools.DotNet;
+﻿using Nuke.Common.Tools.DotNet;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 partial class Build
@@ -13,7 +11,6 @@ partial class Build
             configurations.ForEach(configuration =>
             {
                 foreach (var library in ContentDirectory.GlobFiles("*.dll"))
-                {
                     DotNetPack(settings => settings
                         .SetConfiguration(configuration)
                         .SetVersion(PackVersion)
@@ -23,7 +20,6 @@ partial class Build
                         .SetProperty("RevitFramework", RevitFramework[PackVersion[..4]])
                         .SetOutputDirectory(ArtifactsDirectory)
                         .SetVerbosity(DotNetVerbosity.Minimal));
-                }
             });
         });
 }
