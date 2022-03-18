@@ -19,7 +19,6 @@ partial class Build
                 .ForEach(package =>
                 {
                     DotNetNuGetPush(settings => settings
-                        .SetProcessToolPath(MsBuildPath.Value)
                         .SetTargetPath(package)
                         .SetSource(NugetApiUrl)
                         .SetApiKey(NugetApiKey));

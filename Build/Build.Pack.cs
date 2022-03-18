@@ -15,7 +15,6 @@ partial class Build
                 foreach (var library in ContentDirectory.GlobFiles("*.dll"))
                 {
                     DotNetPack(settings => settings
-                        .SetProcessToolPath(MsBuildPath.Value)
                         .SetConfiguration(configuration)
                         .SetVersion(PackVersion)
                         .SetPackageId($"Nice3point.Revit.Api.{library.NameWithoutExtension}")
