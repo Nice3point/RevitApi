@@ -30,7 +30,7 @@ Installation:
 Installation:
 
 ```text
-<PackageReference Include="Nice3point.Revit.RevitAPI" Version="$(RevitVersion).*"/>
+<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*"/>
 ```
 
 ## RevitAPIUI
@@ -43,7 +43,7 @@ Installation:
 Installation:
 
 ```text
-<PackageReference Include="Nice3point.Revit.RevitAPIUI" Version="$(RevitVersion).*"/>
+<PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*"/>
 ```
 
 ## RevitAPIIFC
@@ -56,5 +56,5 @@ Installation:
 Installation:
 
 ```text
-<PackageReference Include="Nice3point.Revit.RevitAPIIFC" Version="$(RevitVersion).*"/>
+<PackageReference Include="Nice3point.Revit.Api.RevitAPIIFC" Version="$(RevitVersion).*"/>
 ```
