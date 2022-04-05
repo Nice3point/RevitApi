@@ -58,3 +58,16 @@ Installation:
 ```text
 <PackageReference Include="Nice3point.Revit.Api.RevitAPIIFC" Version="$(RevitVersion).*"/>
 ```
+
+## UIFramework
+
+<p align="left">
+  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFramework?style=for-the-badge"></a>
+  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFramework?style=for-the-badge"></a>
+</p>
+
+Installation:
+
+```text
+<PackageReference Include="Nice3point.Revit.Api.UIFramework" Version="$(RevitVersion).*"/>
+```
