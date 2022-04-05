@@ -14,10 +14,7 @@ partial class Build
         {"2023", "net48"},
     };
 
-    const string PackVersion = "2023.0.0-dev0308";
+    const string PackVersion = "2022.1.21";
     const string BuildConfiguration = "Release";
     const string ArtifactsFolder = "output";
-
-    //Specify the path to the MSBuild.exe file here if you are not using VisualStudio
-    const string CustomMsBuildPath = @"C:\Program Files\JetBrains\JetBrains Rider\tools\MSBuild\Current\Bin\MSBuild.exe";
 }
