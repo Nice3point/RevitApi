@@ -15,6 +15,7 @@ partial class Build
     };
 
     const string PackVersion = "2023.0.1";
+    const string LibName = "RevitAddInUtility"; // Make it empty to build all libraries
     const string BuildConfiguration = "Release";
     const string ArtifactsFolder = "output";
 }
