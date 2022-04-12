@@ -5,7 +5,7 @@
 This repository contains libraries for creating Revit add-in. All files are packed into separate Nuget packages for easy connection to your project. Only original files from the
 latest [Revit](https://www.autodesk.com/products/revit) installation image are used.
 
-Didn't find the library you need? Tell me
+Didn't find the library you need? [Tell me](https://github.com/Nice3point/RevitApi/issues/new)
 
 ## AdWindows
 
