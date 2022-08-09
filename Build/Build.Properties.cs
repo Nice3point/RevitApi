@@ -14,7 +14,7 @@ partial class Build
         {"2023", "net48"},
     };
 
-    const string PackVersion = "2023.0.1";
+    string PackVersion = ""; // Make it empty to build all versions
     const string LibName = "RevitAPIMacros"; // Make it empty to build all libraries
     const string BuildConfiguration = "Release";
     const string ArtifactsFolder = "output";

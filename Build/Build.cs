@@ -3,8 +3,9 @@ using Nuke.Common.ProjectModel;
 
 partial class Build : NukeBuild
 {
-    readonly AbsolutePath ContentDirectory = RootDirectory / "RevitApi" / "Content" / PackVersion;
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / ArtifactsFolder;
+    AbsolutePath RootContentDirectory => RootDirectory / "RevitApi" / "Content";
+    AbsolutePath ContentDirectory => RootContentDirectory / PackVersion;
     [Solution] readonly Solution Solution;
     [GitRepository] readonly GitRepository GitRepository;
 
