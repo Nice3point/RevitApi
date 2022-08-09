@@ -1,5 +1,4 @@
 ﻿using Nuke.Common.Tools.DotNet;
-using Serilog;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 partial class Build
@@ -12,16 +11,10 @@ partial class Build
             configurations.ForEach(configuration =>
             {
                 if (string.IsNullOrEmpty(PackVersion))
-                {
-                    foreach (var contentDirectory in RootContentDirectory.GlobDirectories("2*"))
-                    {
+                    foreach (var contentDirectory in RootContentDirectory.GlobDirectories("*"))
                         PackFiles(configuration, contentDirectory, contentDirectory.Name);
-                    }
-                }
                 else
-                {
                     PackFiles(configuration, ContentDirectory, PackVersion);
-                }
             });
         });
 

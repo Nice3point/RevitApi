@@ -4,10 +4,10 @@ using Nuke.Common.ProjectModel;
 partial class Build : NukeBuild
 {
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / ArtifactsFolder;
+    [GitRepository] readonly GitRepository GitRepository;
+    [Solution] readonly Solution Solution;
     AbsolutePath RootContentDirectory => RootDirectory / "RevitApi" / "Content";
     AbsolutePath ContentDirectory => RootContentDirectory / PackVersion;
-    [Solution] readonly Solution Solution;
-    [GitRepository] readonly GitRepository GitRepository;
 
     public static int Main() => Execute<Build>(x => x.Cleaning);
 
@@ -22,6 +22,7 @@ partial class Build : NukeBuild
                 return s.Remove(platformIndex);
             })
             .ToList();
+
         if (configurations.Count == 0) throw new Exception($"Can't find configurations in the solution by patterns: {string.Join(" | ", startPatterns)}.");
         return configurations;
     }

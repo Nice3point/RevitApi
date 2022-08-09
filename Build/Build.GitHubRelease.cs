@@ -16,8 +16,14 @@ partial class Build
         .Requires(() => GitVersion)
         .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
         .OnlyWhenStatic(() => IsServerBuild)
-        .Executes(() =>
+        .Executes(async () =>
         {
+            if (string.IsNullOrEmpty(PackVersion))
+            {
+                Log.Information("Skipping GitHub release because no new versions was found");
+                return;
+            }
+
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
             {
                 Credentials = new Credentials(GitHubToken)
@@ -28,7 +34,7 @@ partial class Build
             var artifacts = Directory.GetFiles(ArtifactsDirectory, "*");
             var isPreRelease = PackVersion.Contains("-beta") || PackVersion.Contains("-dev");
 
-            CheckTags(gitHubOwner, gitHubName, PackVersion);
+            await CheckTagsAsync(gitHubOwner, gitHubName, PackVersion);
             Log.Information("Detected Tag: {Version}", PackVersion);
 
             var newRelease = new NewRelease(PackVersion)
@@ -39,21 +45,18 @@ partial class Build
                 TargetCommitish = GitVersion.Sha
             };
 
-            var draft = CreatedDraft(gitHubOwner, gitHubName, newRelease);
-            UploadArtifacts(draft, artifacts);
-            ReleaseDraft(gitHubOwner, gitHubName, draft);
+            var draft = await CreatedDraftAsync(gitHubOwner, gitHubName, newRelease);
+            await UploadArtifactsAsync(draft, artifacts);
+            await ReleaseDraftAsync(gitHubOwner, gitHubName, draft);
         });
 
-    static void CheckTags(string gitHubOwner, string gitHubName, string version)
+    static async Task CheckTagsAsync(string gitHubOwner, string gitHubName, string version)
     {
-        var gitHubTags = GitHubTasks.GitHubClient.Repository
-            .GetAllTags(gitHubOwner, gitHubName)
-            .Result;
-
+        var gitHubTags = await GitHubTasks.GitHubClient.Repository.GetAllTags(gitHubOwner, gitHubName);
         if (gitHubTags.Select(tag => tag.Name).Contains(version)) throw new ArgumentException($"The repository already contains a Release with the tag: {version}");
     }
 
-    static void UploadArtifacts(Release createdRelease, IEnumerable<string> artifacts)
+    static async Task UploadArtifactsAsync(Release createdRelease, IEnumerable<string> artifacts)
     {
         foreach (var file in artifacts)
         {
@@ -63,20 +66,14 @@ partial class Build
                 FileName = Path.GetFileName(file),
                 RawData = File.OpenRead(file)
             };
-            var _ = GitHubTasks.GitHubClient.Repository.Release.UploadAsset(createdRelease, releaseAssetUpload).Result;
+            await GitHubTasks.GitHubClient.Repository.Release.UploadAsset(createdRelease, releaseAssetUpload);
             Log.Information("Added artifact: {Path}", file);
         }
     }
 
-    static Release CreatedDraft(string gitHubOwner, string gitHubName, NewRelease newRelease) =>
-        GitHubTasks.GitHubClient.Repository.Release
-            .Create(gitHubOwner, gitHubName, newRelease)
-            .Result;
+    static async Task<Release> CreatedDraftAsync(string gitHubOwner, string gitHubName, NewRelease newRelease) =>
+        await GitHubTasks.GitHubClient.Repository.Release.Create(gitHubOwner, gitHubName, newRelease);
 
-    static void ReleaseDraft(string gitHubOwner, string gitHubName, Release draft)
-    {
-        var _ = GitHubTasks.GitHubClient.Repository.Release
-            .Edit(gitHubOwner, gitHubName, draft.Id, new ReleaseUpdate {Draft = false})
-            .Result;
-    }
+    static async Task ReleaseDraftAsync(string gitHubOwner, string gitHubName, Release draft) =>
+        await GitHubTasks.GitHubClient.Repository.Release.Edit(gitHubOwner, gitHubName, draft.Id, new ReleaseUpdate {Draft = false});
 }
