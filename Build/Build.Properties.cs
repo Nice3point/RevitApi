@@ -1,8 +1,9 @@
 partial class Build
 {
-    const string LibName = "RevitAPIMacros"; // Make it empty to build all libraries
     const string BuildConfiguration = "Release";
     const string ArtifactsFolder = "output";
+    const string LibName = ""; // Make it empty to build all libraries
+    readonly string PackVersion = "2023.1.1"; // Make it empty to build all versions
 
     readonly Dictionary<string, string> RevitFramework = new()
     {
@@ -17,6 +18,4 @@ partial class Build
         {"2022", "net48"},
         {"2023", "net48"}
     };
-
-    readonly string PackVersion = ""; // Make it empty to build all versions
 }
