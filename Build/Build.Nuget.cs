@@ -28,7 +28,7 @@ partial class Build
 
     Target NuGetDelete => _ => _
         .Requires(() => NugetApiKey)
-        // .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
+        .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
         .OnlyWhenStatic(() => IsLocalBuild)
         .Executes(() =>
         {
