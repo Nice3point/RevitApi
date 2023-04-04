@@ -2,7 +2,7 @@ partial class Build
 {
     const string BuildConfiguration = "Release";
     const string ArtifactsFolder = "output";
-    const string LibName = ""; // Make it empty to build all libraries
+    const string LibName = "RevitAPIMacros"; // Make it empty to build all libraries
     readonly string PackVersion = "2024.0.0"; // Make it empty to build all versions
 
     readonly Dictionary<string, string> RevitFramework = new()
