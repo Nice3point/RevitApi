@@ -5,21 +5,21 @@
         <NoWarn>CS0649;CS0169</NoWarn>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>true</ImplicitUsings>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <NukeRootDirectory>..</NukeRootDirectory>
         <NukeScriptDirectory>..</NukeScriptDirectory>
         <NukeTelemetryVersion>1</NukeTelemetryVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Nuke.Common" Version="6.3.0"/>
+        <PackageReference Include="Nuke.Common" Version="6.2.1" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageDownload Include="GitVersion.Tool" Version="[5.12.0]"/>
+        <PackageDownload Include="GitVersion.Tool" Version="[5.12.0]" />
     </ItemGroup>
 
     <ItemGroup>
-        <Using Include="Nuke.Common"/>
-        <Using Include="Nuke.Common.IO"/>
+        <Using Include="Nuke.Common" />
+        <Using Include="Nuke.Common.IO" />
     </ItemGroup>
 </Project>
