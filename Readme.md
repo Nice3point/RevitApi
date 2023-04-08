@@ -92,6 +92,13 @@ Installation:
   <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFramework?style=for-the-badge"></a>
 </p>
 
+## UIFrameworkServices
+
+<p align="left">
+  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge"></a>
+  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge"></a>
+</p>
+
 Installation:
 
 ```text
