@@ -4,10 +4,10 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 partial class Build
 {
     Target Pack => _ => _
-        .TriggeredBy(Cleaning)
+        .TriggeredBy(Clean)
         .Executes(() =>
         {
-            var configurations = GetConfigurations(BuildConfiguration);
+            var configurations = GlobBuildConfigurations();
             configurations.ForEach(configuration =>
             {
                 if (string.IsNullOrEmpty(PackVersion))
