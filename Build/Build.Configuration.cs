@@ -1,7 +1,7 @@
 ﻿sealed partial class Build
 {
     const string LibName = ""; // Make it empty to build all libraries
-    const string PackVersion = "2025.0.0-preview"; // Make it empty to build all versions
+    const string PackVersion = "2024.2.0"; // Make it empty to build all versions
 
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / "output";
     readonly AbsolutePath RootContentDirectory = RootDirectory / "RevitApi" / "Content";
