@@ -1,20 +1,20 @@
 ﻿sealed partial class Build
 {
     const string LibName = ""; // Make it empty to build all libraries
-    const string PackVersion = "2024.2.0"; // Make it empty to build all versions
+    const string Version = "2025.0.0-preview2401"; // Make it empty to build all versions
 
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / "output";
     readonly AbsolutePath RootContentDirectory = RootDirectory / "RevitApi" / "Content";
-    readonly AbsolutePath ContentDirectory = RootDirectory / "RevitApi" / "Content" / PackVersion;
+    readonly AbsolutePath ContentDirectory = RootDirectory / "RevitApi" / "Content" / Version;
 
     protected override void OnBuildInitialized()
     {
-        Configurations = new[]
-        {
+        Configurations =
+        [
             "Release*",
             "Installer*"
-        };
-        
+        ];
+
         RevitFramework = new()
         {
             {"2014", "net40"},
@@ -28,7 +28,7 @@
             {"2022", "net48"},
             {"2023", "net48"},
             {"2024", "net48"},
-            {"2025", "net7.0"},
+            {"2025", "net8.0-windows"},
         };
     }
 }

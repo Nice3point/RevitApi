@@ -7,15 +7,22 @@ partial class Build
         .TriggeredBy(Clean)
         .Executes(() =>
         {
-            var configurations = GlobBuildConfigurations();
-            configurations.ForEach(configuration =>
+            ValidateRelease();
+
+            foreach (var configuration in GlobBuildConfigurations())
             {
-                if (string.IsNullOrEmpty(PackVersion))
+                if (string.IsNullOrEmpty(Version))
+                {
                     foreach (var contentDirectory in RootContentDirectory.GlobDirectories("*"))
+                    {
                         PackFiles(configuration, contentDirectory, contentDirectory.Name);
+                    }
+                }
                 else
-                    PackFiles(configuration, ContentDirectory, PackVersion);
-            });
+                {
+                    PackFiles(configuration, ContentDirectory, Version);
+                }
+            }
         });
 
     void PackFiles(string configuration, AbsolutePath contentDirectory, string version)

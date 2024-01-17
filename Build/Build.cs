@@ -5,6 +5,8 @@ partial class Build : NukeBuild
 {
     string[] Configurations;
     Dictionary<string, string> RevitFramework;
+
+    [Secret] [Parameter] string GitHubToken;
     [GitRepository] readonly GitRepository GitRepository;
     [Solution(GenerateProjects = true)] readonly Solution Solution;
 

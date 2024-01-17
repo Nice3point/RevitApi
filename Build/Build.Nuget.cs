@@ -11,6 +11,7 @@ partial class Build
     [Secret] [Parameter] string NugetApiKey;
 
     Target NuGetPush => _ => _
+        .DependsOn(Pack)
         .Requires(() => NugetApiKey)
         .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
         .OnlyWhenStatic(() => IsLocalBuild)
@@ -37,7 +38,7 @@ partial class Build
                 {
                     DotNetNuGetDelete(settings => settings
                         .SetPackage(package.Name[..package.Name.IndexOf(".20", StringComparison.Ordinal)])
-                        .SetVersion(PackVersion)
+                        .SetVersion(Version)
                         .SetSource(NugetApiUrl)
                         .SetApiKey(NugetApiKey)
                         .EnableNonInteractive());
