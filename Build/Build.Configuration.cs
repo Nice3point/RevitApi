@@ -1,7 +1,7 @@
 ﻿sealed partial class Build
 {
     const string LibName = ""; // Make it empty to build all libraries
-    const string Version = "2025.0.0-preview2401"; // Make it empty to build all versions
+    const string Version = "2025.0.0-preview0111"; // Make it empty to build all versions
 
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / "output";
     readonly AbsolutePath RootContentDirectory = RootDirectory / "RevitApi" / "Content";
@@ -28,7 +28,7 @@
             {"2022", "net48"},
             {"2023", "net48"},
             {"2024", "net48"},
-            {"2025", "net8.0-windows"}
+            {"2025", "net8.0"}
         };
     }
 }
