@@ -39,7 +39,7 @@ partial class Build
                 .SetProperty("LibraryName", library.NameWithoutExtension)
                 .SetProperty("RevitFramework", RevitFramework[version[..4]])
                 .SetOutputDirectory(ArtifactsDirectory)
-                .SetVerbosity(DotNetVerbosity.Minimal));
+                .SetVerbosity(DotNetVerbosity.minimal));
         }
     }
 }
