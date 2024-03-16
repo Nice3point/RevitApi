@@ -5,7 +5,7 @@
     </picture>
 </p>
 
-# Libraries for Revit add-ins development
+## Libraries for Revit add-ins development
 
 This repository contains libraries for creating Revit add-in. All files are packed into separate Nuget packages for easy connection to your project. Only original files from the
 latest [Revit](https://www.autodesk.com/products/revit) installation image are used.
@@ -92,7 +92,7 @@ Installation:
 ## UIFrameworkServices
 
 [![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
-[![Downloads](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
 
 Installation:
 
