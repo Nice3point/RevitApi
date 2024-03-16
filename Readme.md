@@ -1,6 +1,11 @@
-<h3 align="center"><img src="https://user-images.githubusercontent.com/20504884/151987351-a3eceb30-ad81-49fb-8a45-1b7c945aca84.png" width="500px"></h3>
+<p align="center">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" width="500" srcset="https://github.com/Nice3point/RevitApi/assets/20504884/093e1130-1aeb-427b-8231-d0a3f7d467f2">
+        <img alt="RevitLookup" width="500" src="https://github.com/Nice3point/RevitApi/assets/20504884/fdc24b70-1dce-44f9-961f-7c4b467cc024">
+    </picture>
+</p>
 
-# Libraries for Revit plugin development
+# Libraries for Revit add-ins development
 
 This repository contains libraries for creating Revit add-in. All files are packed into separate Nuget packages for easy connection to your project. Only original files from the
 latest [Revit](https://www.autodesk.com/products/revit) installation image are used.
@@ -9,10 +14,8 @@ Didn't find the library you need? [Tell me](https://github.com/Nice3point/RevitA
 
 ## AdWindows
 
-<p align="left">
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.AdWindows?style=for-the-badge"></a>
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.AdWindows?style=for-the-badge"></a>
-</p>
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.AdWindows?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.AdWindows?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
 
 Installation:
 
@@ -22,10 +25,8 @@ Installation:
 
 ## RevitAPI
 
-<p align="left">
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPI?style=for-the-badge"></a>
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPI?style=for-the-badge"></a>
-</p>
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI)
 
 Installation:
 
@@ -35,10 +36,8 @@ Installation:
 
 ## RevitAPIUI
 
-<p align="left">
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIUI"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIUI?style=for-the-badge"></a>
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIUI"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIUI?style=for-the-badge"></a>
-</p>
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIUI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIUI)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIUI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIUI)
 
 Installation:
 
@@ -48,10 +47,8 @@ Installation:
 
 ## RevitAPIIFC
 
-<p align="left">
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIIFC?style=for-the-badge"></a>
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIIFC?style=for-the-badge"></a>
-</p>
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIIFC?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIIFC?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
 
 Installation:
 
@@ -61,10 +58,8 @@ Installation:
 
 ## RevitAddInUtility
 
-<p align="left">
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge"></a>
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge"></a>
-</p>
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
 
 Installation:
 
@@ -74,10 +69,8 @@ Installation:
 
 ## RevitAPIMacros
 
-<p align="left">
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge"></a>
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge"></a>
-</p>
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
 
 Installation:
 
@@ -87,10 +80,8 @@ Installation:
 
 ## UIFramework
 
-<p align="left">
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFramework?style=for-the-badge"></a>
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFramework?style=for-the-badge"></a>
-</p>
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFramework?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFramework?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/)
 
 Installation:
 
@@ -100,10 +91,8 @@ Installation:
 
 ## UIFrameworkServices
 
-<p align="left">
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/"><img src="https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge"></a>
-  <a href="https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/"><img src="https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge"></a>
-</p>
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
+[![Downloads](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
 
 Installation:
 
