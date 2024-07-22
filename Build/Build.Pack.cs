@@ -9,6 +9,7 @@ partial class Build
         {
             ValidateRelease();
 
+            var readme = CreateNugetReadme();
             foreach (var configuration in GlobBuildConfigurations())
             {
                 if (string.IsNullOrEmpty(Version))
@@ -23,6 +24,8 @@ partial class Build
                     PackFiles(configuration, ContentDirectory, Version);
                 }
             }
+
+            RestoreReadme(readme);
         });
 
     void PackFiles(string configuration, AbsolutePath contentDirectory, string version)
@@ -41,5 +44,28 @@ partial class Build
                 .SetOutputDirectory(ArtifactsDirectory)
                 .SetVerbosity(DotNetVerbosity.minimal));
         }
+    }
+
+    string CreateNugetReadme()
+    {
+        var readmePath = Solution.Directory / "Readme.md";
+        var readme = File.ReadAllText(readmePath);
+
+        var startSymbol = "<p";
+        var endSymbol = "</p>\r\n\r\n";
+        var logoStartIndex = readme.IndexOf(startSymbol, StringComparison.Ordinal);
+        var logoEndIndex = readme.IndexOf(endSymbol, StringComparison.Ordinal);
+
+        var nugetReadme = readme.Remove(logoStartIndex, logoEndIndex - logoStartIndex + endSymbol.Length);
+        File.WriteAllText(readmePath, nugetReadme);
+
+        return readme;
+    }
+
+    void RestoreReadme(string readme)
+    {
+        var readmePath = Solution.Directory / "Readme.md";
+
+        File.WriteAllText(readmePath, readme);
     }
 }
