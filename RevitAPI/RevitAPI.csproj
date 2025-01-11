@@ -1,10 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <NoWarn>$(NoWarn);NU5128;NU5131</NoWarn>
         <IncludeBuildOutput>false</IncludeBuildOutput>
-        <OutputPath>..\output</OutputPath>
     </PropertyGroup>
+    
     <PropertyGroup>
         <PackageType>Dependency</PackageType>
         <Authors>Nice3point</Authors>
@@ -18,9 +19,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\.nuget\PackageIcon.png" Link="NuGet\PackageIcon.png" PackagePath="images\" Pack="true" />
-        <None Include="..\License.md" Link="NuGet\License.md" PackagePath="" Pack="true" />
-        <None Include="..\Readme.md" Link="NuGet\Readme.md" PackagePath="" Pack="true"/>
+        <None Include=".nuget\PackageIcon.png" PackagePath="images\" Pack="true" />
+        <None Include="License.md" PackagePath="" Pack="true" />
+        <None Include="Readme.md" PackagePath="" Pack="true"/>
         <Content Include="Content\$(PackVersion)\$(LibraryName).*" PackagePath="ref\$(RevitFramework)\" />
     </ItemGroup>
+    
 </Project>

@@ -10,6 +10,7 @@
         <NukeRootDirectory>..</NukeRootDirectory>
         <NukeScriptDirectory>..</NukeScriptDirectory>
         <NukeTelemetryVersion>1</NukeTelemetryVersion>
+        <RootNamespace>Build</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

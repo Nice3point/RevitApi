@@ -1,7 +1,7 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{051E6468-DAC2-4258-B5A8-63B536D35555}") = "Build", "Build\Build.csproj", "{5930652A-279B-4642-8AB9-B83D5E9B49CA}"
+Project("{051E6468-DAC2-4258-B5A8-63B536D35555}") = "Build2", "Build2\Build2.csproj", "{5930652A-279B-4642-8AB9-B83D5E9B49CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitApi", "RevitApi\RevitApi.csproj", "{6D0637D3-A07C-472F-86DB-21E3D7472587}"
 EndProject
