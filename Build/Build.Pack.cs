@@ -1,47 +1,51 @@
 ﻿using Nuke.Common.Tools.DotNet;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-partial class Build
+sealed partial class Build
 {
     Target Pack => _ => _
         .DependsOn(Clean)
+        .OnlyWhenStatic(() => !string.IsNullOrEmpty(AssemblyName) || !string.IsNullOrEmpty(ReleaseVersion))
         .Executes(() =>
         {
-            ValidateRelease();
-
             var readme = CreateNugetReadme();
-            foreach (var configuration in GlobBuildConfigurations())
+            try
             {
-                if (string.IsNullOrEmpty(Version))
+                var changelog = CreateNugetChangelog();
+                if (string.IsNullOrEmpty(ReleaseVersion))
                 {
                     foreach (var contentDirectory in RootContentDirectory.GlobDirectories("*"))
                     {
-                        PackFiles(configuration, contentDirectory, contentDirectory.Name);
+                        PackFiles(contentDirectory, changelog);
                     }
                 }
                 else
                 {
-                    PackFiles(configuration, ContentDirectory, Version);
+                    PackFiles(RootContentDirectory / ReleaseVersion, changelog);
                 }
             }
-
-            RestoreReadme(readme);
+            finally
+            {
+                RestoreReadme(readme);
+            }
         });
 
-    void PackFiles(string configuration, AbsolutePath contentDirectory, string version)
+    void PackFiles(AbsolutePath contentDirectory, string changelog)
     {
+        var version = contentDirectory.Name;
         foreach (var library in contentDirectory.GlobFiles("*.dll"))
         {
-            if (!string.IsNullOrWhiteSpace(LibName) && !library.NameWithoutExtension.Equals(LibName)) continue;
+            if (!string.IsNullOrEmpty(AssemblyName) && library.NameWithoutExtension != AssemblyName) continue;
 
             DotNetPack(settings => settings
-                .SetConfiguration(configuration)
+                .SetConfiguration("Release")
                 .SetVersion(version)
                 .SetPackageId($"Nice3point.Revit.Api.{library.NameWithoutExtension}")
                 .SetProperty("PackVersion", version)
                 .SetProperty("LibraryName", library.NameWithoutExtension)
                 .SetProperty("RevitFramework", RevitFramework[version[..4]])
                 .SetOutputDirectory(ArtifactsDirectory)
+                .SetPackageReleaseNotes(changelog)
                 .SetVerbosity(DotNetVerbosity.minimal));
         }
     }
