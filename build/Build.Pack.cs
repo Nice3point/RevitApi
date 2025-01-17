@@ -44,7 +44,6 @@ sealed partial class Build
                 .SetProperty("LibraryName", library.NameWithoutExtension)
                 .SetProperty("RevitFramework", RevitFramework[version[..4]])
                 .SetOutputDirectory(ArtifactsDirectory)
-                .SetPackageReleaseNotes(ReleaseNotes)
                 .SetVerbosity(DotNetVerbosity.minimal));
         }
     }
