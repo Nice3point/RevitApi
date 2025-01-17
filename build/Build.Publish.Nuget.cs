@@ -28,10 +28,12 @@ sealed partial class Build
         {
             foreach (var package in ArtifactsDirectory.GlobFiles("*.nupkg"))
             {
-                ProcessTasks.StartProcess(
-                        "dotnet",
-                        $"nuget delete {package.Name[..package.Name.IndexOf(".20", StringComparison.Ordinal)]} {ReleaseVersion} -s {NugetSource} -k {NugetApiKey} --non-interactive")
-                    .AssertZeroExitCode();
+                DotNetNuGetDelete(settings => settings
+                    .SetPackageId(package.Name[..package.Name.IndexOf(".20", StringComparison.Ordinal)])
+                    .SetPackageVersion(ReleaseVersion)
+                    .SetSource(NugetSource)
+                    .SetApiKey(NugetApiKey)
+                    .EnableNonInteractive());
             }
         });
 }
