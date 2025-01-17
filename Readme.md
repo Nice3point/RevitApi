@@ -23,6 +23,17 @@ Installation:
 <PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="$(RevitVersion).*"/>
 ```
 
+## PackageContentsParser
+
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
+
+Installation:
+
+```text
+<PackageReference Include="Nice3point.Revit.Api.PackageContentsParser" Version="$(RevitVersion).*"/>
+```
+
 ## RevitAPI
 
 [![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI)
