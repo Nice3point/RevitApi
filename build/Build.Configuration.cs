@@ -1,9 +1,7 @@
-﻿using Nuke.Common.CI.GitHubActions;
-
-sealed partial class Build
+﻿sealed partial class Build
 {
-    [Parameter("Publish a package with a specific DLL name")] string AssemblyName;
-    [Parameter("Publish a package with a specific Release version")] static string ReleaseVersion = GitHubActions.Instance?.RefName;
+    [Parameter("Publish a new package with a specific DLL name for all versions")] string AssemblyName;
+    [Parameter("Publish packages with a specific Release version")] static string ReleaseVersion;
 
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / "output";
     readonly AbsolutePath ChangeLogPath = RootDirectory / "Changelog.md";
@@ -11,6 +9,8 @@ sealed partial class Build
 
     protected override void OnBuildInitialized()
     {
+        ReleaseVersion = GitRepository.Tags.SingleOrDefault();
+        
         RevitFramework = new()
         {
             { "2014", "net40" },

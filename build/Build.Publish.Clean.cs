@@ -1,12 +1,14 @@
 ﻿using Nuke.Common.Tools.Git;
+using Nuke.Common.Utilities.Collections;
 
 sealed partial class Build
 {
     Target CleanFailedRelease => _ => _
+        .Unlisted()
         .AssuredAfterFailure()
         .TriggeredBy(PublishGitHub)
-        .Requires(() => ReleaseVersion)
-        .OnlyWhenDynamic(() => FailedTargets.Contains(PublishGitHub) || FailedTargets.Contains(PublishNuget))
+        .OnlyWhenStatic(() => IsServerBuild)
+        .OnlyWhenDynamic(() => !FailedTargets.IsEmpty())
         .Executes(() =>
         {
             Log.Information("Cleaning failed GitHub release");
