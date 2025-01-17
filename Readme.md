@@ -12,28 +12,6 @@ latest [Revit](https://www.autodesk.com/products/revit) installation image are u
 
 Didn't find the library you need? [Tell me](https://github.com/Nice3point/RevitApi/issues/new)
 
-## AdWindows
-
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.AdWindows?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.AdWindows?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
-
-Installation:
-
-```text
-<PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="$(RevitVersion).*"/>
-```
-
-## PackageContentsParser
-
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
-
-Installation:
-
-```text
-<PackageReference Include="Nice3point.Revit.Api.PackageContentsParser" Version="$(RevitVersion).*"/>
-```
-
 ## RevitAPI
 
 [![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI)
@@ -67,26 +45,16 @@ Installation:
 <PackageReference Include="Nice3point.Revit.Api.RevitAPIIFC" Version="$(RevitVersion).*"/>
 ```
 
-## RevitAddInUtility
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
+## AdWindows
 
-Installation:
-
-```text
-<PackageReference Include="Nice3point.Revit.Api.RevitAddInUtility" Version="$(RevitVersion).*"/>
-```
-
-## RevitAPIMacros
-
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.AdWindows?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.AdWindows?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
 
 Installation:
 
 ```text
-<PackageReference Include="Nice3point.Revit.Api.RevitAPIMacros" Version="$(RevitVersion).*"/>
+<PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="$(RevitVersion).*"/>
 ```
 
 ## UIFramework
@@ -109,4 +77,37 @@ Installation:
 
 ```text
 <PackageReference Include="Nice3point.Revit.Api.UIFrameworkServices" Version="$(RevitVersion).*"/>
+```
+
+## RevitAddInUtility
+
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
+
+Installation:
+
+```text
+<PackageReference Include="Nice3point.Revit.Api.RevitAddInUtility" Version="$(RevitVersion).*"/>
+```
+
+## RevitAPIMacros
+
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
+
+Installation:
+
+```text
+<PackageReference Include="Nice3point.Revit.Api.RevitAPIMacros" Version="$(RevitVersion).*"/>
+```
+
+## PackageContentsParser
+
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
+
+Installation:
+
+```text
+<PackageReference Include="Nice3point.Revit.Api.PackageContentsParser" Version="$(RevitVersion).*"/>
 ```
