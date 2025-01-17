@@ -11,17 +11,16 @@ sealed partial class Build
             var readme = CreateNugetReadme();
             try
             {
-                var changelog = CreateNugetChangelog();
                 if (string.IsNullOrEmpty(ReleaseVersion))
                 {
                     foreach (var contentDirectory in RootContentDirectory.GlobDirectories("*"))
                     {
-                        PackFiles(contentDirectory, changelog);
+                        PackFiles(contentDirectory);
                     }
                 }
                 else
                 {
-                    PackFiles(RootContentDirectory / ReleaseVersion, changelog);
+                    PackFiles(RootContentDirectory / ReleaseVersion);
                 }
             }
             finally
@@ -30,13 +29,13 @@ sealed partial class Build
             }
         });
 
-    void PackFiles(AbsolutePath contentDirectory, string changelog)
+    void PackFiles(AbsolutePath contentDirectory)
     {
-        var version = contentDirectory.Name;
         foreach (var library in contentDirectory.GlobFiles("*.dll"))
         {
             if (!string.IsNullOrEmpty(AssemblyName) && library.NameWithoutExtension != AssemblyName) continue;
 
+            var version = library.Parent!.Name;
             DotNetPack(settings => settings
                 .SetConfiguration("Release")
                 .SetVersion(version)
@@ -45,7 +44,7 @@ sealed partial class Build
                 .SetProperty("LibraryName", library.NameWithoutExtension)
                 .SetProperty("RevitFramework", RevitFramework[version[..4]])
                 .SetOutputDirectory(ArtifactsDirectory)
-                .SetPackageReleaseNotes(changelog)
+                .SetPackageReleaseNotes(ReleaseNotes)
                 .SetVerbosity(DotNetVerbosity.minimal));
         }
     }

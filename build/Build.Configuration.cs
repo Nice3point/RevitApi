@@ -2,6 +2,7 @@
 {
     [Parameter("Publish a new package with a specific DLL name for all versions")] string AssemblyName;
     [Parameter("Publish packages with a specific Release version")] static string ReleaseVersion;
+    [Parameter("Release notes for the publication")] static string ReleaseNotes;
 
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / "output";
     readonly AbsolutePath ChangeLogPath = RootDirectory / "Changelog.md";
@@ -9,7 +10,7 @@
 
     protected override void OnBuildInitialized()
     {
-        ReleaseVersion = GitRepository.Tags.SingleOrDefault();
+        ReleaseVersion ??= GitRepository.Tags.SingleOrDefault();
         
         RevitFramework = new()
         {

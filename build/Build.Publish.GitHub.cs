@@ -12,14 +12,13 @@ sealed partial class Build
             var gitHubName = GitRepository.GetGitHubName();
             var gitHubOwner = GitRepository.GetGitHubOwner();
 
-            var changelog = CreateGithubChangelog();
             var artifacts = Directory.GetFiles(ArtifactsDirectory, "*");
             Assert.NotEmpty(artifacts, "No artifacts were found to create the Release");
 
             var newRelease = new NewRelease(ReleaseVersion)
             {
                 Name = ReleaseVersion,
-                Body = changelog,
+                Body = ReleaseNotes,
                 TargetCommitish = GitRepository.Commit,
                 Prerelease = ReleaseVersion.Contains("preview", StringComparison.OrdinalIgnoreCase)
             };
