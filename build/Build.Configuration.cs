@@ -2,10 +2,9 @@
 {
     [Parameter("Publish a new package with a specific DLL name for all versions")] string AssemblyName;
     [Parameter("Publish packages with a specific Release version")] static string ReleaseVersion;
-    [Parameter("Release notes for the publication")] static string ReleaseNotes = "Build 25.4.0.32";
+    [Parameter("Release notes for the publication")] static string ReleaseNotes = "Revit Preview - March 2025";
 
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / "output";
-    readonly AbsolutePath ChangeLogPath = RootDirectory / "Changelog.md";
     readonly AbsolutePath RootContentDirectory = RootDirectory / "RevitApi" / "Content";
 
     protected override void OnBuildInitialized()
