@@ -45,6 +45,16 @@ Installation:
 <PackageReference Include="Nice3point.Revit.Api.RevitAPIIFC" Version="$(RevitVersion).*"/>
 ```
 
+## RevitNET
+
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitNET?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitNET?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
+
+Installation:
+
+```text
+<PackageReference Include="Nice3point.Revit.Api.RevitNET" Version="$(RevitVersion).*"/>
+```
 
 ## AdWindows
 
