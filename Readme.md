@@ -47,8 +47,8 @@ Installation:
 
 ## RevitNET
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitNET?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitNET?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitNET?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitNET)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitNET?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitNET)
 
 Installation:
 
