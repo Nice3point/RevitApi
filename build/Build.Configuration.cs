@@ -2,7 +2,7 @@
 {
     [Parameter("Publish a new package with a specific DLL name for all versions")] string AssemblyName;
     [Parameter("Publish packages with a specific Release version")] static string ReleaseVersion;
-    [Parameter("Release notes for the publication")] static string ReleaseNotes = "Build 26.1.0.35";
+    [Parameter("Release notes for the publication")] static string ReleaseNotes = "Build 26.2.0.20";
 
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / "output";
     readonly AbsolutePath RootContentDirectory = RootDirectory / "RevitApi" / "Content";
