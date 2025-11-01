@@ -14,11 +14,7 @@ namespace Build.Modules;
 
 [SkipIfNoGitHubToken]
 [DependsOn<PackProjectsModule>]
-public sealed class PublishGithubModule(
-    IOptions<BuildOptions> buildOptions,
-    IOptions<PackOptions> packOptions, 
-    IOptions<ReleaseOptions> releaseOptions)
-    : Module<ReleaseAsset[]?>
+public sealed class PublishGithubModule(IOptions<PackOptions> packOptions, IOptions<ReleaseOptions> releaseOptions) : Module<ReleaseAsset[]?>
 {
     protected override async Task<ReleaseAsset[]?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
     {
@@ -27,12 +23,12 @@ public sealed class PublishGithubModule(
         targetFiles.Length.ShouldBePositive("No artifacts were found to create the Release");
 
         var repositoryInfo = context.GitHub().RepositoryInfo;
-        var newRelease = new NewRelease(buildOptions.Value.Version)
+        var newRelease = new NewRelease(releaseOptions.Value.Version)
         {
-            Name = buildOptions.Value.Version,
+            Name = releaseOptions.Value.Version,
             Body = releaseOptions.Value.Changelog,
             TargetCommitish = context.Git().Information.LastCommitSha,
-            Prerelease = buildOptions.Value.Version.Contains("preview")
+            Prerelease = releaseOptions.Value.Version.Contains("preview")
         };
 
         var release = await context.GitHub().Client.Repository.Release.Create(repositoryInfo.Owner, repositoryInfo.RepositoryName, newRelease);

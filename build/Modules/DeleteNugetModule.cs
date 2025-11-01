@@ -1,8 +1,6 @@
-﻿using Build.Attributes;
-using Build.Options;
+﻿using Build.Options;
 using EnumerableAsyncProcessor.Extensions;
 using Microsoft.Extensions.Options;
-using ModularPipelines.Attributes;
 using ModularPipelines.Context;
 using ModularPipelines.DotNet.Extensions;
 using ModularPipelines.DotNet.Options;
@@ -13,7 +11,7 @@ using ModularPipelines.Modules;
 namespace Build.Modules;
 
 public sealed class DeleteNugetModule(
-    IOptions<BuildOptions> buildOptions, 
+    IOptions<ReleaseOptions> buildOptions, 
     IOptions<PackOptions> packOptions, 
     IOptions<NuGetOptions> nuGetOptions)
     : Module<CommandResult[]?>

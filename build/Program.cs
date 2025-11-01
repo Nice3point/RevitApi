@@ -14,10 +14,9 @@ await PipelineHostBuilder.Create()
     })
     .ConfigureServices((context, collection) =>
     {
-        collection.AddOptions<BuildOptions>().Bind(context.Configuration.GetSection("Build")).ValidateDataAnnotations();
-
         if (args.Contains("delete-nuget"))
         {
+            collection.AddOptions<ReleaseOptions>().Bind(context.Configuration.GetSection("Release")).ValidateDataAnnotations();
             collection.AddModule<DeleteNugetModule>();
             return;
         }
