@@ -1,4 +1,5 @@
-﻿using EnumerableAsyncProcessor.Extensions;
+﻿using Build.Options;
+using EnumerableAsyncProcessor.Extensions;
 using Microsoft.Extensions.Options;
 using ModularPipelines.Attributes;
 using ModularPipelines.Context;
@@ -7,9 +8,8 @@ using ModularPipelines.GitHub.Attributes;
 using ModularPipelines.GitHub.Extensions;
 using ModularPipelines.Modules;
 using Octokit;
-using RevitApi.Pipeline.Options;
 
-namespace RevitApi.Pipeline.Modules;
+namespace Build.Modules;
 
 [SkipIfNoGitHubToken]
 [DependsOn<PackProjectsModule>]

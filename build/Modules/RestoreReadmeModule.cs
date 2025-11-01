@@ -4,7 +4,7 @@ using ModularPipelines.Git.Extensions;
 using ModularPipelines.Models;
 using ModularPipelines.Modules;
 
-namespace RevitApi.Pipeline.Modules;
+namespace Build.Modules;
 
 [DependsOn<PackProjectsModule>]
 [DependsOn<CreateNugetReadmeModule>]

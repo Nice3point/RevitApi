@@ -1,14 +1,14 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Build.Attributes;
+using Build.Options;
+using Microsoft.Extensions.Options;
 using ModularPipelines.Attributes;
 using ModularPipelines.Context;
 using ModularPipelines.FileSystem;
 using ModularPipelines.Git.Extensions;
 using ModularPipelines.Modules;
-using RevitApi.Pipeline.Attributes;
-using RevitApi.Pipeline.Options;
 using Sourcy.DotNet;
 
-namespace RevitApi.Pipeline.Modules;
+namespace Build.Modules;
 
 [SkipIfHasGitHubToken]
 [ModuleCategory("Publish")]
@@ -44,14 +44,14 @@ public sealed class CleanProjectModule(IOptions<PackOptions> packOptions) : Modu
 
         return false;
     }
-    
+
     private static bool IgnoredFoldersPredicate(Folder folder)
     {
         if (folder.Path.StartsWith(Projects.Build.Directory!.FullName))
         {
             return false;
         }
-        
+
         return true;
     }
 }

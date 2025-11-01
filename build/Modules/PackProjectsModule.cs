@@ -1,5 +1,5 @@
-﻿using EnumerableAsyncProcessor.Extensions;
-using EnumerableAsyncProcessor.Interfaces;
+﻿using Build.Options;
+using EnumerableAsyncProcessor.Extensions;
 using Microsoft.Extensions.Options;
 using ModularPipelines.Attributes;
 using ModularPipelines.Context;
@@ -9,11 +9,10 @@ using ModularPipelines.FileSystem;
 using ModularPipelines.Git.Extensions;
 using ModularPipelines.Models;
 using ModularPipelines.Modules;
-using RevitApi.Pipeline.Options;
 using Sourcy.DotNet;
 using File = ModularPipelines.FileSystem.File;
 
-namespace RevitApi.Pipeline.Modules;
+namespace Build.Modules;
 
 [DependsOn<CleanProjectModule>]
 [DependsOn<CreateNugetReadmeModule>]

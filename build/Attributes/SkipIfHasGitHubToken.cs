@@ -1,7 +1,7 @@
 ﻿using ModularPipelines.Attributes;
 using ModularPipelines.Context;
 
-namespace RevitApi.Pipeline.Attributes;
+namespace Build.Attributes;
 
 public sealed class SkipIfHasGitHubToken : MandatoryRunConditionAttribute
 {

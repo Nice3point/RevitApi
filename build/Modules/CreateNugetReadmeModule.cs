@@ -3,7 +3,7 @@ using ModularPipelines.Context;
 using ModularPipelines.Git.Extensions;
 using ModularPipelines.Modules;
 
-namespace RevitApi.Pipeline.Modules;
+namespace Build.Modules;
 
 [ModuleCategory("Publish")]
 public sealed class CreateNugetReadmeModule : Module<string>

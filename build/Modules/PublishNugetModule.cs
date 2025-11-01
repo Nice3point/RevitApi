@@ -1,4 +1,5 @@
-﻿using EnumerableAsyncProcessor.Extensions;
+﻿using Build.Options;
+using EnumerableAsyncProcessor.Extensions;
 using Microsoft.Extensions.Options;
 using ModularPipelines.Attributes;
 using ModularPipelines.Context;
@@ -7,9 +8,8 @@ using ModularPipelines.DotNet.Options;
 using ModularPipelines.Git.Extensions;
 using ModularPipelines.Models;
 using ModularPipelines.Modules;
-using RevitApi.Pipeline.Options;
 
-namespace RevitApi.Pipeline.Modules;
+namespace Build.Modules;
 
 [DependsOn<PackProjectsModule>]
 [ModuleCategory("Publish")]

@@ -1,6 +1,6 @@
 using ModularPipelines.Attributes;
 
-namespace RevitApi.Pipeline.Options;
+namespace Build.Options;
 
 public sealed class NuGetOptions
 {

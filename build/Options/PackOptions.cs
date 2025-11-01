@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RevitApi.Pipeline.Options;
+namespace Build.Options;
 
 public sealed class PackOptions
 {
