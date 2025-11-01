@@ -47,7 +47,7 @@ public sealed class CleanProjectModule(IOptions<PackOptions> packOptions) : Modu
     
     private static bool IgnoredFoldersPredicate(Folder folder)
     {
-        if (folder.Path.StartsWith(Projects.RevitApi_Pipeline.Directory!.FullName))
+        if (folder.Path.StartsWith(Projects.Build.Directory!.FullName))
         {
             return false;
         }

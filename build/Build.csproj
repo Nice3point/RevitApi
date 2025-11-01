@@ -6,6 +6,7 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>true</ImplicitUsings>
         <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>RevitApi.Pipeline</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

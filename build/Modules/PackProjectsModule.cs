@@ -69,7 +69,7 @@ public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Modu
                 var version = file.Folder!.Name;
                 return await context.DotNet().Pack(new DotNetPackOptions
                 {
-                    ProjectSolution = Projects.RevitAPI.FullName,
+                    ProjectSolution = Projects.Nice3point_Revit_Api.FullName,
                     Configuration = Configuration.Release,
                     Verbosity = Verbosity.Minimal,
                     Properties = new List<KeyValue>

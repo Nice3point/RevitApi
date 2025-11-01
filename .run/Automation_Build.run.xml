@@ -1,6 +1,6 @@
 ﻿<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Automation\RevitApi.Pipeline" type="DotNetProject" factoryName=".NET Project">
-    <option name="EXE_PATH" value="$PROJECT_DIR$/build/bin/Debug/net9.0/RevitApi.Pipeline.exe" />
+  <configuration default="false" name="Automation\Build" type="DotNetProject" factoryName=".NET Project">
+    <option name="EXE_PATH" value="$PROJECT_DIR$/build/bin/Debug/net9.0/Build.exe" />
     <option name="PROGRAM_PARAMETERS" value="Publish" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/build/bin/Debug/net9.0" />
     <option name="PASS_PARENT_ENVS" value="1" />
@@ -15,7 +15,7 @@
     <option name="USE_MONO" value="0" />
     <option name="RUNTIME_ARGUMENTS" value="" />
     <option name="AUTO_ATTACH_CHILDREN" value="0" />
-    <option name="PROJECT_PATH" value="$PROJECT_DIR$/build/RevitApi.Pipeline.csproj" />
+    <option name="PROJECT_PATH" value="$PROJECT_DIR$/build/Build.csproj" />
     <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
     <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
     <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
