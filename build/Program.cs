@@ -16,7 +16,10 @@ await PipelineHostBuilder.Create()
     {
         if (args.Contains("delete-nuget"))
         {
-            collection.AddOptions<ReleaseOptions>().Bind(context.Configuration.GetSection("Release")).ValidateDataAnnotations();
+            collection.AddOptions<BuildOptions>().Bind(context.Configuration.GetSection("Build")).ValidateDataAnnotations();
+            collection.AddOptions<PackOptions>().Bind(context.Configuration.GetSection("Pack")).ValidateDataAnnotations();
+            collection.AddOptions<NuGetOptions>().Bind(context.Configuration.GetSection("NuGet")).ValidateDataAnnotations();
+            
             collection.AddModule<DeleteNugetModule>();
             return;
         }
@@ -33,6 +36,7 @@ await PipelineHostBuilder.Create()
 
         if (args.Contains("publish") && context.HostingEnvironment.IsProduction())
         {
+            collection.AddOptions<BuildOptions>().Bind(context.Configuration.GetSection("Build")).ValidateDataAnnotations();
             collection.AddOptions<ReleaseOptions>().Bind(context.Configuration.GetSection("Release")).ValidateDataAnnotations();
             collection.AddOptions<NuGetOptions>().Bind(context.Configuration.GetSection("NuGet")).ValidateDataAnnotations();
 
@@ -40,5 +44,4 @@ await PipelineHostBuilder.Create()
             collection.AddModule<PublishGithubModule>();
         }
     })
-    .RunCategories(args)
     .ExecutePipelineAsync();

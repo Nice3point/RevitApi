@@ -10,11 +10,7 @@ using ModularPipelines.Modules;
 
 namespace Build.Modules;
 
-public sealed class DeleteNugetModule(
-    IOptions<ReleaseOptions> buildOptions, 
-    IOptions<PackOptions> packOptions, 
-    IOptions<NuGetOptions> nuGetOptions)
-    : Module<CommandResult[]?>
+public sealed class DeleteNugetModule(IOptions<BuildOptions> buildOptions, IOptions<PackOptions> packOptions, IOptions<NuGetOptions> nuGetOptions) : Module<CommandResult[]?>
 {
     protected override async Task<CommandResult[]?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
     {
