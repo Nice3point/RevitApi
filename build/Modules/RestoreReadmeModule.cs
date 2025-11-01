@@ -7,21 +7,20 @@ using ModularPipelines.Modules;
 namespace Build.Modules;
 
 [DependsOn<PackProjectsModule>]
-[DependsOn<CreateNugetReadmeModule>]
-[ModuleCategory("Publish")]
+[DependsOn<CreatePackageReadmeModule>]
 public sealed class RestoreReadmeModule : Module
 {
     public override ModuleRunType ModuleRunType => ModuleRunType.AlwaysRun;
 
     protected override async Task<bool> ShouldIgnoreFailures(IPipelineContext context, Exception exception)
     {
-        var nugetReadmeModule = await GetModule<CreateNugetReadmeModule>();
+        var nugetReadmeModule = await GetModule<CreatePackageReadmeModule>();
         return nugetReadmeModule.HasValue;
     }
 
     protected override async Task<IDictionary<string, object>?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
     {
-        var nugetReadmeModule = await GetModule<CreateNugetReadmeModule>();
+        var nugetReadmeModule = await GetModule<CreatePackageReadmeModule>();
         if (!nugetReadmeModule.HasValue)
         {
             return await NothingAsync();

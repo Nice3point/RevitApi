@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Shouldly" Version="4.3.0"/>
         <PackageReference Include="Sourcy.DotNet" Version="0.7.9"/>
         <PackageReference Include="ModularPipelines" Version="2.47.8"/>
         <PackageReference Include="ModularPipelines.Git" Version="2.47.8"/>

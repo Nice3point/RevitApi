@@ -1,4 +1,5 @@
-﻿using Build.Options;
+﻿using Build.Attributes;
+using Build.Options;
 using EnumerableAsyncProcessor.Extensions;
 using Microsoft.Extensions.Options;
 using ModularPipelines.Attributes;
@@ -11,8 +12,11 @@ using ModularPipelines.Modules;
 
 namespace Build.Modules;
 
-[ModuleCategory("DeleteNuget")]
-public sealed class DeleteNugetModule(IOptions<PackOptions> packOptions, IOptions<NuGetOptions> nuGetOptions) : Module<CommandResult[]?>
+public sealed class DeleteNugetModule(
+    IOptions<BuildOptions> buildOptions, 
+    IOptions<PackOptions> packOptions, 
+    IOptions<NuGetOptions> nuGetOptions)
+    : Module<CommandResult[]?>
 {
     protected override async Task<CommandResult[]?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
     {
@@ -20,11 +24,11 @@ public sealed class DeleteNugetModule(IOptions<PackOptions> packOptions, IOption
             .GetFolder(packOptions.Value.ContentDirectory)
             .GetFiles(file => file.Extension == ".dll")
             .DistinctBy(file => file.Name);
-        
+
         return await targetFiles
             .SelectAsync(async file => await context.DotNet().Nuget.Delete(new DotNetNugetDeleteOptions
                 {
-                    PackageNamePackageVersion = $"Nice3point.Revit.Api.{file.NameWithoutExtension} {packOptions.Value.PinnedDllVersion}",
+                    PackageNamePackageVersion = $"Nice3point.Revit.Api.{file.NameWithoutExtension} {buildOptions.Value.Version}",
                     ApiKey = nuGetOptions.Value.ApiKey,
                     Source = nuGetOptions.Value.Source,
                     NonInteractive = true

@@ -9,15 +9,15 @@ using ModularPipelines.FileSystem;
 using ModularPipelines.Git.Extensions;
 using ModularPipelines.Models;
 using ModularPipelines.Modules;
+using Shouldly;
 using Sourcy.DotNet;
 using File = ModularPipelines.FileSystem.File;
 
 namespace Build.Modules;
 
-[DependsOn<CleanProjectModule>]
-[DependsOn<CreateNugetReadmeModule>]
-[ModuleCategory("Publish")]
-public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Module<ICollection<CommandResult>>
+[DependsOn<CleanProjectsModule>]
+[DependsOn<CreatePackageReadmeModule>]
+public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Module
 {
     private readonly Dictionary<string, string> _revitFrameworks = new()
     {
@@ -36,34 +36,32 @@ public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Modu
         { "2026", "net8.0-windows7.0" }
     };
 
-    protected override async Task<ICollection<CommandResult>?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
+    protected override async Task<IDictionary<string, object>?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
     {
         var rootContentFolder = context.Git().RootDirectory.GetFolder(packOptions.Value.ContentDirectory);
         var outputFolder = context.Git().RootDirectory.GetFolder(packOptions.Value.OutputDirectory);
         var versionContentFolder = rootContentFolder.GetFolder(packOptions.Value.PinnedDllVersion);
         var targetFolders = string.IsNullOrEmpty(packOptions.Value.PinnedDllVersion)
-            ? rootContentFolder.ListFolders()
+            ? rootContentFolder.ListFolders().ToArray()
             : [versionContentFolder];
 
-        var packagedItems = new List<CommandResult>();
+        targetFolders.Length.ShouldBePositive("No folders were found to pack");
+
         foreach (var targetFolder in targetFolders)
         {
             var targetFiles = string.IsNullOrEmpty(packOptions.Value.PinnedDllName)
                 ? targetFolder.GetFiles(file => file.Extension == ".dll")
                 : targetFolder.GetFiles(file => file.Extension == ".dll" && file.NameWithoutExtension == packOptions.Value.PinnedDllName);
 
-            var results = await PackAsync(context, targetFiles, outputFolder, cancellationToken);
-            packagedItems.AddRange(results);
+            await PackAsync(context, targetFiles, outputFolder, cancellationToken);
         }
 
-        if (packagedItems.Count == 0) throw new Exception("No libraries were packed. Check build configuration.");
-        return packagedItems;
+        return await NothingAsync();
     }
 
-    private async Task<CommandResult[]> PackAsync(IPipelineContext context, IEnumerable<File> files, Folder output, CancellationToken cancellationToken)
+    private async Task PackAsync(IPipelineContext context, IEnumerable<File> files, Folder output, CancellationToken cancellationToken)
     {
-        return await files
-            .SelectAsync(async file =>
+        await files.SelectAsync(async file =>
             {
                 var version = file.Folder!.Name;
                 return await context.DotNet().Pack(new DotNetPackOptions

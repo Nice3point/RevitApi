@@ -1,12 +1,10 @@
-using ModularPipelines.Attributes;
 using ModularPipelines.Context;
 using ModularPipelines.Git.Extensions;
 using ModularPipelines.Modules;
 
 namespace Build.Modules;
 
-[ModuleCategory("Publish")]
-public sealed class CreateNugetReadmeModule : Module<string>
+public sealed class CreatePackageReadmeModule : Module<string>
 {
     protected override async Task<string?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
     {

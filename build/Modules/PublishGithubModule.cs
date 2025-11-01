@@ -8,30 +8,31 @@ using ModularPipelines.GitHub.Attributes;
 using ModularPipelines.GitHub.Extensions;
 using ModularPipelines.Modules;
 using Octokit;
+using Shouldly;
 
 namespace Build.Modules;
 
 [SkipIfNoGitHubToken]
 [DependsOn<PackProjectsModule>]
-[ModuleCategory("Publish")]
-public sealed class PublishGithubModule(IOptions<PackOptions> packOptions, IOptions<ReleaseOptions> releaseOptions) : Module<ReleaseAsset[]?>
+public sealed class PublishGithubModule(
+    IOptions<BuildOptions> buildOptions,
+    IOptions<PackOptions> packOptions, 
+    IOptions<ReleaseOptions> releaseOptions)
+    : Module<ReleaseAsset[]?>
 {
     protected override async Task<ReleaseAsset[]?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
     {
         var outputFolder = context.Git().RootDirectory.GetFolder(packOptions.Value.OutputDirectory);
         var targetFiles = outputFolder.ListFiles().ToArray();
-        if (targetFiles.Length == 0)
-        {
-            throw new Exception("No artifacts were found to create the Release");
-        }
+        targetFiles.Length.ShouldBePositive("No artifacts were found to create the Release");
 
         var repositoryInfo = context.GitHub().RepositoryInfo;
-        var newRelease = new NewRelease(releaseOptions.Value.Version)
+        var newRelease = new NewRelease(buildOptions.Value.Version)
         {
-            Name = releaseOptions.Value.Version,
+            Name = buildOptions.Value.Version,
             Body = releaseOptions.Value.Changelog,
             TargetCommitish = context.Git().Information.LastCommitSha,
-            Prerelease = releaseOptions.Value.Version.Contains("preview")
+            Prerelease = buildOptions.Value.Version.Contains("preview")
         };
 
         var release = await context.GitHub().Client.Repository.Release.Create(repositoryInfo.Owner, repositoryInfo.RepositoryName, newRelease);
