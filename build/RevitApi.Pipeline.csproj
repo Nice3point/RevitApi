@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>true</ImplicitUsings>
+        <TargetFramework>net9.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Sourcy.DotNet" Version="0.7.9"/>
+        <PackageReference Include="ModularPipelines" Version="2.47.8"/>
+        <PackageReference Include="ModularPipelines.Git" Version="2.47.8"/>
+        <PackageReference Include="ModularPipelines.GitHub" Version="2.47.8"/>
+        <PackageReference Include="ModularPipelines.DotNet" Version="2.47.8"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.2"/>
+        <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" Version="9.0.10"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
+
+</Project>

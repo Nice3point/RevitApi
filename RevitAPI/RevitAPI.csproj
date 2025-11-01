@@ -1,28 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    
+
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <NoWarn>$(NoWarn);NU5128;NU5131</NoWarn>
+        <RevitFramework Condition="'$(RevitFramework)' == ''">net9.0</RevitFramework>
+        <TargetFramework>$(RevitFramework)</TargetFramework>
+        <NoWarn>$(NoWarn);NU5131</NoWarn>
         <IncludeBuildOutput>false</IncludeBuildOutput>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <PackageType>Dependency</PackageType>
         <Authors>Nice3point</Authors>
         <Description>Library for Revit plugin development</Description>
-        <PackageTags>revit;api</PackageTags>
+        <PackageTags>api;autodesk;revit</PackageTags>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/Nice3point/RevitApi</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/Nice3point/RevitApi</PackageProjectUrl>
         <PackageIcon>images\PackageIcon.png</PackageIcon>
         <PackageLicenseFile>License.md</PackageLicenseFile>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\.nuget\PackageIcon.png" PackagePath="images\" Pack="true" />
-        <None Include="..\License.md" PackagePath="" Pack="true" />
+        <None Include="..\.nuget\PackageIcon.png" PackagePath="images\" Pack="true"/>
+        <None Include="..\License.md" PackagePath="" Pack="true"/>
         <None Include="..\Readme.md" PackagePath="" Pack="true"/>
-        <Content Include="Content\$(PackVersion)\$(LibraryName).*" PackagePath="ref\$(RevitFramework)\" />
+        <Content Include="Content\$(Version)\$(LibraryName).*" PackagePath="ref\$(TargetFramework)\"/>
     </ItemGroup>
-    
+
 </Project>

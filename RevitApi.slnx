@@ -1,12 +1,12 @@
 ﻿<Solution>
     <Folder Name="/Automation/">
         <Project Path="build\RevitApi.Pipeline.csproj">
-            <Configuration Solution="Release|Any CPU" Project="Release|Any CPU|NoBuild"/>
+            <Configuration Solution="Release|Any CPU" Project="Release|Any CPU|NoBuild" />
         </Project>
     </Folder>
     <Folder Name="/Solution Items/">
-        <File Path="Readme.md"/>
-        <File Path="Build\Build.Configuration.cs"/>
+        <File Path="build/appsettings.json" />
+        <File Path="Readme.md" />
     </Folder>
-    <Project Path="RevitApi\RevitApi.csproj" Type="Classic C#"/>
+    <Project Path="RevitApi\RevitApi.csproj" />
 </Solution>

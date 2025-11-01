@@ -1,0 +1,34 @@
+name: Publish Packages
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  windows:
+    name: windows-2022
+    runs-on: windows-2022
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Cache NuGet
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', 'Directory.Build.props', 'Directory.Packages.props') }}
+          restore-keys: ${{ runner.os }}-nuget-
+
+      - name: Publish packages
+        run: dotnet run -c Release -- Publish
+        working-directory: "build"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOTNET_ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'Production' || 'Development' }}
+          NuGet__ApiKey: ${{ secrets.NUGET_API_KEY }}
+          Release__Version: ${{ github.ref_name }}
+          Release__Changelog: $(git tag -l --format='%(contents)' ${{ github.ref_name }})
