@@ -1,9 +1,11 @@
+using System.ComponentModel.DataAnnotations;
 using ModularPipelines.Attributes;
 
 namespace Build.Options;
 
-public sealed class NuGetOptions
+[Serializable]
+public sealed record NuGetOptions
 {
-    [SecretValue] public string? ApiKey { get; init; }
-    public string? Source { get; init; }
+    [Required] [SecretValue] public string ApiKey { get; init; } = null!;
+    [Required] public string Source { get; init; } = null!;
 }

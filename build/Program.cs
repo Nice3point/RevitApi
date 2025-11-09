@@ -19,23 +19,25 @@ await PipelineHostBuilder.Create()
             collection.AddOptions<BuildOptions>().Bind(context.Configuration.GetSection("Build")).ValidateDataAnnotations();
             collection.AddOptions<PackOptions>().Bind(context.Configuration.GetSection("Pack")).ValidateDataAnnotations();
             collection.AddOptions<NuGetOptions>().Bind(context.Configuration.GetSection("NuGet")).ValidateDataAnnotations();
-            
+
             collection.AddModule<DeleteNugetModule>();
             return;
         }
 
-        if (args.Length == 0 || args.Contains("pack"))
-        {
-            collection.AddOptions<PackOptions>().Bind(context.Configuration.GetSection("Pack")).ValidateDataAnnotations();
+        collection.AddOptions<PackOptions>().Bind(context.Configuration.GetSection("Pack")).ValidateDataAnnotations();
 
-            collection.AddModule<CleanProjectsModule>();
-            collection.AddModule<CreatePackageReadmeModule>();
-            collection.AddModule<PackProjectsModule>();
-            collection.AddModule<RestoreReadmeModule>();
-        }
+        collection.AddModule<CleanProjectsModule>();
+        collection.AddModule<CreatePackageReadmeModule>();
+        collection.AddModule<PackProjectsModule>();
+        collection.AddModule<RestoreReadmeModule>();
 
-        if (args.Contains("publish") && context.HostingEnvironment.IsProduction())
+        if (args.Contains("publish"))
         {
+            if (!context.HostingEnvironment.IsProduction())
+            {
+                throw new InvalidOperationException("Publish can only be run in production");
+            }
+
             collection.AddOptions<BuildOptions>().Bind(context.Configuration.GetSection("Build")).ValidateDataAnnotations();
             collection.AddOptions<ReleaseOptions>().Bind(context.Configuration.GetSection("Release")).ValidateDataAnnotations();
             collection.AddOptions<NuGetOptions>().Bind(context.Configuration.GetSection("NuGet")).ValidateDataAnnotations();

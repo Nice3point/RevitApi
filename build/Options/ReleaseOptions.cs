@@ -2,7 +2,8 @@
 
 namespace Build.Options;
 
-public sealed class ReleaseOptions
+[Serializable]
+public sealed record ReleaseOptions
 {
     [Required] public string Changelog { get; init; } = null!;
 }

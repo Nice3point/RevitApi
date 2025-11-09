@@ -50,8 +50,10 @@ public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Modu
         foreach (var targetFolder in targetFolders)
         {
             var targetFiles = string.IsNullOrEmpty(packOptions.Value.PinnedDllName)
-                ? targetFolder.GetFiles(file => file.Extension == ".dll")
-                : targetFolder.GetFiles(file => file.Extension == ".dll" && file.NameWithoutExtension == packOptions.Value.PinnedDllName);
+                ? targetFolder.GetFiles(file => file.Extension == ".dll").ToArray()
+                : targetFolder.GetFiles(file => file.Extension == ".dll" && file.NameWithoutExtension == packOptions.Value.PinnedDllName).ToArray();
+            
+            targetFiles.ShouldNotBeEmpty("No files were found to pack");
 
             await PackAsync(context, targetFiles, outputFolder, cancellationToken);
         }
@@ -59,7 +61,7 @@ public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Modu
         return await NothingAsync();
     }
 
-    private async Task PackAsync(IPipelineContext context, IEnumerable<File> files, Folder output, CancellationToken cancellationToken)
+    private async Task PackAsync(IPipelineContext context, File[] files, Folder output, CancellationToken cancellationToken)
     {
         await files.SelectAsync(async file =>
             {

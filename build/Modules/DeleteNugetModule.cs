@@ -7,6 +7,7 @@ using ModularPipelines.DotNet.Options;
 using ModularPipelines.Git.Extensions;
 using ModularPipelines.Models;
 using ModularPipelines.Modules;
+using Shouldly;
 
 namespace Build.Modules;
 
@@ -17,7 +18,10 @@ public sealed class DeleteNugetModule(IOptions<BuildOptions> buildOptions, IOpti
         var targetFiles = context.Git().RootDirectory
             .GetFolder(packOptions.Value.ContentDirectory)
             .GetFiles(file => file.Extension == ".dll")
-            .DistinctBy(file => file.Name);
+            .DistinctBy(file => file.Name)
+            .ToArray();
+        
+        targetFiles.ShouldNotBeEmpty("No NuGet packages were found to delete");
 
         return await targetFiles
             .SelectAsync(async file => await context.DotNet().Nuget.Delete(new DotNetNugetDeleteOptions
