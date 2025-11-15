@@ -46,6 +46,6 @@ public sealed class PublishGithubModule(IOptions<BuildOptions> buildOptions, IOp
                     return await context.GitHub().Client.Repository.Release.UploadAsset(release, asset, cancellationToken);
                 },
                 cancellationToken)
-            .ProcessInParallel();
+            .ProcessOneAtATime();
     }
 }
