@@ -10,6 +10,7 @@ await PipelineHostBuilder.Create()
     .ConfigureAppConfiguration((context, builder) =>
     {
         builder.AddJsonFile("appsettings.json")
+            .AddUserSecrets<Program>()
             .AddEnvironmentVariables();
     })
     .ConfigureServices((context, collection) =>

@@ -6,6 +6,7 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>true</ImplicitUsings>
         <TargetFramework>net9.0</TargetFramework>
+        <UserSecretsId>50ff5232-1e3e-4b63-8a66-d2113ba7f069</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
