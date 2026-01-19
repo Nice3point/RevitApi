@@ -11,12 +11,7 @@ using Shouldly;
 
 namespace Build.Modules;
 
-public sealed class DeleteNugetModule(
-    IOptions<BuildOptions> buildOptions,
-    IOptions<PublishOptions> publishOptions,
-    IOptions<PackOptions> packOptions,
-    IOptions<NuGetOptions> nuGetOptions)
-    : Module<CommandResult[]?>
+public sealed class DeleteNugetModule(IOptions<PublishOptions> publishOptions, IOptions<PackOptions> packOptions, IOptions<NuGetOptions> nuGetOptions) : Module<CommandResult[]?>
 {
     protected override async Task<CommandResult[]?> ExecuteAsync(IModuleContext context, CancellationToken cancellationToken)
     {
