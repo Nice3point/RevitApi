@@ -11,28 +11,33 @@ using Shouldly;
 
 namespace Build.Modules;
 
-public sealed class DeleteNugetModule(IOptions<BuildOptions> buildOptions, IOptions<PackOptions> packOptions, IOptions<NuGetOptions> nuGetOptions) : Module<CommandResult[]?>
+public sealed class DeleteNugetModule(
+    IOptions<BuildOptions> buildOptions,
+    IOptions<PublishOptions> publishOptions,
+    IOptions<PackOptions> packOptions,
+    IOptions<NuGetOptions> nuGetOptions)
+    : Module<CommandResult[]?>
 {
-    protected override async Task<CommandResult[]?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
+    protected override async Task<CommandResult[]?> ExecuteAsync(IModuleContext context, CancellationToken cancellationToken)
     {
         var targetFiles = context.Git().RootDirectory
             .GetFolder(packOptions.Value.ContentDirectory)
             .GetFiles(file => file.Extension == ".dll")
             .DistinctBy(file => file.Name)
             .ToArray();
-        
+
         targetFiles.ShouldNotBeEmpty("No NuGet packages were found to delete");
 
         return await targetFiles
             .SelectAsync(async file => await context.DotNet().Nuget.Delete(new DotNetNugetDeleteOptions
                 {
                     PackageName = $"Nice3point.Revit.Api.{file.NameWithoutExtension}",
-                    PackageVersion = buildOptions.Value.Version,
+                    Version = publishOptions.Value.Version,
                     ApiKey = nuGetOptions.Value.ApiKey,
                     Source = nuGetOptions.Value.Source,
                     NonInteractive = true
-                }, cancellationToken),
+                }, cancellationToken: cancellationToken),
                 cancellationToken)
-            .ProcessOneAtATime();
+            .ProcessInParallel();
     }
 }

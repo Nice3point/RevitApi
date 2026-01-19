@@ -15,9 +15,9 @@ using File = ModularPipelines.FileSystem.File;
 
 namespace Build.Modules;
 
-[DependsOn<CleanProjectsModule>]
-[DependsOn<CreatePackageReadmeModule>]
-public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Module
+[DependsOn<UpdateReadmeModule>(Optional = true)]
+[DependsOn<CleanProjectsModule>(Optional = true)]
+public sealed class PackProjectsModule(IOptions<BuildOptions> buildOptions, IOptions<PackOptions> packOptions) : Module
 {
     private readonly Dictionary<string, string> _revitFrameworks = new()
     {
@@ -33,17 +33,17 @@ public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Modu
         { "2023", "net48" },
         { "2024", "net48" },
         { "2025", "net8.0-windows7.0" },
-        { "2026", "net8.0-windows7.0" }
+        { "2026", "net8.0-windows7.0" },
+        { "2027", "net10.0-windows7.0" },
     };
 
-    protected override async Task<IDictionary<string, object>?> ExecuteAsync(IPipelineContext context, CancellationToken cancellationToken)
+    protected override async Task ExecuteModuleAsync(IModuleContext context, CancellationToken cancellationToken)
     {
         var rootContentFolder = context.Git().RootDirectory.GetFolder(packOptions.Value.ContentDirectory);
-        var outputFolder = context.Git().RootDirectory.GetFolder(packOptions.Value.OutputDirectory);
-        var versionContentFolder = rootContentFolder.GetFolder(packOptions.Value.PinnedDllVersion);
+        var outputFolder = context.Git().RootDirectory.GetFolder(buildOptions.Value.OutputDirectory);
         var targetFolders = string.IsNullOrEmpty(packOptions.Value.PinnedDllVersion)
             ? rootContentFolder.ListFolders().ToArray()
-            : [versionContentFolder];
+            : [rootContentFolder.GetFolder(packOptions.Value.PinnedDllVersion)];
 
         targetFolders.Length.ShouldBePositive("No folders were found to pack");
 
@@ -52,13 +52,11 @@ public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Modu
             var targetFiles = string.IsNullOrEmpty(packOptions.Value.PinnedDllName)
                 ? targetFolder.GetFiles(file => file.Extension == ".dll").ToArray()
                 : targetFolder.GetFiles(file => file.Extension == ".dll" && file.NameWithoutExtension == packOptions.Value.PinnedDllName).ToArray();
-            
+
             targetFiles.ShouldNotBeEmpty("No files were found to pack");
 
             await PackAsync(context, targetFiles, outputFolder, cancellationToken);
         }
-
-        return await NothingAsync();
     }
 
     private async Task PackAsync(IPipelineContext context, File[] files, Folder output, CancellationToken cancellationToken)
@@ -69,8 +67,8 @@ public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Modu
                 return await context.DotNet().Pack(new DotNetPackOptions
                 {
                     ProjectSolution = Projects.Nice3point_Revit_Api.FullName,
-                    Configuration = Configuration.Release,
-                    Verbosity = Verbosity.Minimal,
+                    Configuration = "Release",
+                    Output = output,
                     Properties = new List<KeyValue>
                     {
                         ("Version", version),
@@ -78,8 +76,7 @@ public sealed class PackProjectsModule(IOptions<PackOptions> packOptions) : Modu
                         ("LibraryName", file.NameWithoutExtension),
                         ("RevitFramework", _revitFrameworks[version[..4]])
                     },
-                    OutputDirectory = output
-                }, cancellationToken);
+                }, cancellationToken: cancellationToken);
             }, cancellationToken)
             .ProcessOneAtATime();
     }

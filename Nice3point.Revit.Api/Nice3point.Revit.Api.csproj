@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <RevitFramework Condition="'$(RevitFramework)' == ''">net9.0</RevitFramework>
+        <RevitFramework Condition="'$(RevitFramework)' == ''">net10.0</RevitFramework>
         <TargetFramework>$(RevitFramework)</TargetFramework>
         <NoWarn>$(NoWarn);NU5131</NoWarn>
         <IncludeBuildOutput>false</IncludeBuildOutput>

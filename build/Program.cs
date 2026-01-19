@@ -2,49 +2,37 @@
 using Build.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using ModularPipelines;
 using ModularPipelines.Extensions;
-using ModularPipelines.Host;
 
-await PipelineHostBuilder.Create()
-    .ConfigureAppConfiguration((context, builder) =>
-    {
-        builder.AddJsonFile("appsettings.json")
-            .AddUserSecrets<Program>()
-            .AddEnvironmentVariables();
-    })
-    .ConfigureServices((context, collection) =>
-    {
-        if (args.Contains("delete-nuget"))
-        {
-            collection.AddOptions<BuildOptions>().Bind(context.Configuration.GetSection("Build")).ValidateDataAnnotations();
-            collection.AddOptions<PackOptions>().Bind(context.Configuration.GetSection("Pack")).ValidateDataAnnotations();
-            collection.AddOptions<NuGetOptions>().Bind(context.Configuration.GetSection("NuGet")).ValidateDataAnnotations();
+var builder = Pipeline.CreateBuilder();
 
-            collection.AddModule<DeleteNugetModule>();
-            return;
-        }
+builder.Configuration.AddJsonFile("appsettings.json");
+builder.Configuration.AddUserSecrets<Program>();
+builder.Configuration.AddEnvironmentVariables();
 
-        collection.AddOptions<PackOptions>().Bind(context.Configuration.GetSection("Pack")).ValidateDataAnnotations();
+builder.Services.Configure<BuildOptions>(builder.Configuration.GetSection("Build"));
+builder.Services.Configure<PackOptions>(builder.Configuration.GetSection("Pack"));
+builder.Services.Configure<NuGetOptions>(builder.Configuration.GetSection("NuGet"));
+builder.Services.Configure<PublishOptions>(builder.Configuration.GetSection("Publish"));
 
-        collection.AddModule<CleanProjectsModule>();
-        collection.AddModule<CreatePackageReadmeModule>();
-        collection.AddModule<PackProjectsModule>();
-        collection.AddModule<RestoreReadmeModule>();
+if (args.Contains("clean-nuget"))
+{
+    builder.Services.AddModule<DeleteNugetModule>();
+}
 
-        if (args.Contains("publish"))
-        {
-            if (!context.HostingEnvironment.IsProduction())
-            {
-                throw new InvalidOperationException("Publish can only be run in production");
-            }
+if (args.Contains("pack"))
+{
+    builder.Services.AddModule<CleanProjectsModule>();
+    builder.Services.AddModule<PackProjectsModule>();
+    builder.Services.AddModule<UpdateReadmeModule>();
+    builder.Services.AddModule<RestoreReadmeModule>();
+}
 
-            collection.AddOptions<BuildOptions>().Bind(context.Configuration.GetSection("Build")).ValidateDataAnnotations();
-            collection.AddOptions<ReleaseOptions>().Bind(context.Configuration.GetSection("Release")).ValidateDataAnnotations();
-            collection.AddOptions<NuGetOptions>().Bind(context.Configuration.GetSection("NuGet")).ValidateDataAnnotations();
+if (args.Contains("publish"))
+{
+    builder.Services.AddModule<PublishNugetModule>();
+    builder.Services.AddModule<PublishGithubModule>();
+}
 
-            collection.AddModule<PublishNugetModule>();
-            collection.AddModule<PublishGithubModule>();
-        }
-    })
-    .ExecutePipelineAsync();
+await builder.Build().RunAsync();
