@@ -1,7 +1,7 @@
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)" width="500" srcset="https://github.com/Nice3point/RevitApi/assets/20504884/093e1130-1aeb-427b-8231-d0a3f7d467f2">
-        <img alt="RevitLookup" width="500" src="https://github.com/Nice3point/RevitApi/assets/20504884/fdc24b70-1dce-44f9-961f-7c4b467cc024">
+        <img alt="RevitAPI" width="500" src="https://github.com/Nice3point/RevitApi/assets/20504884/fdc24b70-1dce-44f9-961f-7c4b467cc024">
     </picture>
 </p>
 
