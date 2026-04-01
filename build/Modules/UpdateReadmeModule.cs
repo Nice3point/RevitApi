@@ -4,6 +4,9 @@ using ModularPipelines.Modules;
 
 namespace Build.Modules;
 
+/// <summary>
+///     Remove the unsupported NuGet formating from the readme.
+/// </summary>
 public sealed class UpdateReadmeModule : Module<string>
 {
     protected override async Task<string?> ExecuteAsync(IModuleContext context, CancellationToken cancellationToken)

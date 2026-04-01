@@ -13,6 +13,9 @@ using Shouldly;
 
 namespace Build.Modules;
 
+/// <summary>
+///     Publish the NuGet packages to NuGet.org.
+/// </summary>
 [DependsOn<PackProjectsModule>(Optional = true)]
 public sealed class PublishNugetModule(IOptions<BuildOptions> buildOptions, IOptions<NuGetOptions> nuGetOptions) : Module<CommandResult[]?>
 {

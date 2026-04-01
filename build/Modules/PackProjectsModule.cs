@@ -15,8 +15,11 @@ using File = ModularPipelines.FileSystem.File;
 
 namespace Build.Modules;
 
+/// <summary>
+///     Pack the NuGet package.
+/// </summary>
 [DependsOn<UpdateReadmeModule>(Optional = true)]
-[DependsOn<CleanProjectsModule>(Optional = true)]
+[DependsOn<CleanProjectModule>(Optional = true)]
 public sealed class PackProjectsModule(IOptions<BuildOptions> buildOptions, IOptions<PackOptions> packOptions) : Module
 {
     private readonly Dictionary<string, string> _revitFrameworks = new()

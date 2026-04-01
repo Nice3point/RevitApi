@@ -14,6 +14,9 @@ using Shouldly;
 
 namespace Build.Modules;
 
+/// <summary>
+///     Publish the package to GitHub.
+/// </summary>
 [SkipIfNoGitHubToken]
 [DependsOn<ResolveVersioningModule>]
 [DependsOn<PackProjectsModule>(Optional = true)]
