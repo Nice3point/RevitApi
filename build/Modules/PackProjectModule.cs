@@ -20,7 +20,7 @@ namespace Build.Modules;
 /// </summary>
 [DependsOn<UpdateReadmeModule>(Optional = true)]
 [DependsOn<CleanProjectModule>(Optional = true)]
-public sealed class PackProjectsModule(IOptions<BuildOptions> buildOptions, IOptions<PackOptions> packOptions) : Module
+public sealed class PackProjectModule(IOptions<BuildOptions> buildOptions, IOptions<PackOptions> packOptions) : Module
 {
     private readonly Dictionary<string, string> _revitFrameworks = new()
     {

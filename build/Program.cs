@@ -23,8 +23,8 @@ if (args.Contains("clean-nuget"))
 
 if (args.Contains("pack"))
 {
-    builder.Services.AddModule<CleanProjectsModule>();
-    builder.Services.AddModule<PackProjectsModule>();
+    builder.Services.AddModule<CleanProjectModule>();
+    builder.Services.AddModule<PackProjectModule>();
     builder.Services.AddModule<UpdateReadmeModule>();
     builder.Services.AddModule<RestoreReadmeModule>();
 }

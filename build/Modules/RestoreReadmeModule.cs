@@ -10,7 +10,7 @@ namespace Build.Modules;
 ///     Restore the readme.
 /// </summary>
 [DependsOn<UpdateReadmeModule>]
-[DependsOn<PackProjectsModule>(Optional = true)]
+[DependsOn<PackProjectModule>(Optional = true)]
 public sealed class RestoreReadmeModule : Module
 {
     protected override ModuleConfiguration Configure() => ModuleConfiguration.Create()

@@ -19,7 +19,7 @@ namespace Build.Modules;
 /// </summary>
 [SkipIfNoGitHubToken]
 [DependsOn<ResolveVersioningModule>]
-[DependsOn<PackProjectsModule>(Optional = true)]
+[DependsOn<PackProjectModule>(Optional = true)]
 [DependsOn<PublishNugetModule>(Optional = true)]
 public sealed class PublishGithubModule(IOptions<BuildOptions> buildOptions, IOptions<PublishOptions> publishOptions) : Module<ReleaseAsset[]?>
 {
