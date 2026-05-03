@@ -17,7 +17,7 @@
         <PackageVersion Include="Microsoft.VisualStudio.SolutionPersistence" Version="1.0.52"/>
 
         <!-- Testing -->
-        <PackageVersion Include="TUnit" Version="1.28.7"/>
+        <PackageVersion Include="TUnit" Version="1.43.11"/>
         <PackageVersion Include="Shouldly" Version="4.3.0"/>
 
         <!-- Development Tools -->
