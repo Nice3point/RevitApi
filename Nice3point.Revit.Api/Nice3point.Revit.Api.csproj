@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Content\2027.0.10\" />
+      <Folder Include="Content\2027.0.20\" />
     </ItemGroup>
 
 </Project>
