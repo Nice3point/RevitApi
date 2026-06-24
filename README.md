@@ -14,8 +14,8 @@ Didn't find the library you need? [Tell me](https://github.com/Nice3point/RevitA
 
 ## RevitAPI
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPI?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPI?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPI)
 
 Installation:
 
@@ -25,8 +25,8 @@ Installation:
 
 ## RevitAPIUI
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIUI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIUI)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIUI?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIUI)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIUI?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIUI)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIUI?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIUI)
 
 Installation:
 
@@ -36,8 +36,8 @@ Installation:
 
 ## RevitAPIIFC
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIIFC?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIIFC?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIIFC?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIIFC?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIIFC)
 
 Installation:
 
@@ -47,8 +47,8 @@ Installation:
 
 ## RevitNET
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitNET?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitNET)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitNET?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitNET)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitNET?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitNET)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitNET?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitNET)
 
 Installation:
 
@@ -58,8 +58,8 @@ Installation:
 
 ## AdWindows
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.AdWindows?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.AdWindows?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.AdWindows?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.AdWindows?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.AdWindows)
 
 Installation:
 
@@ -69,8 +69,8 @@ Installation:
 
 ## UIFramework
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFramework?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFramework?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFramework?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFramework?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFramework/)
 
 Installation:
 
@@ -80,8 +80,8 @@ Installation:
 
 ## UIFrameworkServices
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.UIFrameworkServices?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.UIFrameworkServices/)
 
 Installation:
 
@@ -91,8 +91,8 @@ Installation:
 
 ## RevitAddInUtility
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAddInUtility?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAddInUtility/)
 
 Installation:
 
@@ -102,8 +102,8 @@ Installation:
 
 ## RevitAPIMacros
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.RevitAPIMacros?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.RevitAPIMacros/)
 
 Installation:
 
@@ -113,8 +113,8 @@ Installation:
 
 ## PackageContentsParser
 
-[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
-[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
+[![Nuget](https://img.shields.io/nuget/vpre/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
+[![Downloads](https://img.shields.io/nuget/dt/Nice3point.Revit.Api.PackageContentsParser?style=for-the-badge&color=black&labelColor=crimson)](https://www.nuget.org/packages/Nice3point.Revit.Api.PackageContentsParser)
 
 Installation:
 
