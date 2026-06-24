@@ -16,14 +16,14 @@
         <RepositoryUrl>https://github.com/Nice3point/RevitApi</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Nice3point/RevitApi</PackageProjectUrl>
         <PackageIcon>images\PackageIcon.png</PackageIcon>
-        <PackageLicenseFile>License.md</PackageLicenseFile>
-        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="..\.nuget\PackageIcon.png" PackagePath="images\" Pack="true"/>
-        <None Include="..\License.md" PackagePath="" Pack="true"/>
-        <None Include="..\Readme.md" PackagePath="" Pack="true"/>
+        <None Include="..\LICENSE.md" PackagePath="" Pack="true"/>
+        <None Include="..\README.md" PackagePath="" Pack="true"/>
         <Content Include="Content\$(Version)\$(LibraryName).*" PackagePath="ref\$(TargetFramework)\"/>
     </ItemGroup>
 
