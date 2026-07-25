@@ -27,8 +27,4 @@
         <Content Include="Content\$(Version)\$(LibraryName).*" PackagePath="ref\$(TargetFramework)\"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Content\2027.1.0\" />
-    </ItemGroup>
-
 </Project>
